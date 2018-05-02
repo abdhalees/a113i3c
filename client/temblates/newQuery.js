@@ -3,14 +3,20 @@ var css = require('sheetify')
 
 css('tachyons')
 
+var fontSize = css`
+  :host {
+    font-size: 2vh;
+    font-weight: 500;
+  }
+`
 module.exports = function (emit) {
   return html`
-          <li class='mb3'>
-            <label for='newKey' class='dib w-20 sans-serif'> Key: </label>
-            <input type="text" id="newKey" class='mr2 h2 ba b--light-gray code'/>
-            <label for='newValue' class='mr2 sans-serif'> Value: </label>
-            <input type="text" class='ba h2 b--light-gray code' id="newValue"/>
-            <button class='ml2 w4 h2 bg-near-white ba sans-serif' onclick=${onClick}>Add Query</button>
+          <div>
+          <label class='roboto mid-gray'> Query: </label> 
+          <li class='mv2'>
+            <input type="text" placeholder='Key:' id="newKey" class='mr2 pl2 w-20 h2 ba b--light-gray code'/>
+            <input type="text" placeholder='Value:' class='ba h2 w-20 pl2 b--light-gray code' id="newValue"/>
+            <button class='ml2 w4 h2 bg-near-white ba roboto ${fontSize}' onclick=${onClick}>Add Query</button>
           </li>
 `
   function onClick (e) {
