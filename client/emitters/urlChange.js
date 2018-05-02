@@ -21,12 +21,12 @@ module.exports = function (state, emitter) {
       emitter.emit('pathChange', path)
       emitter.emit('queryChange', query)
     } else {
-      if (state.querystring) {
-        var querystring = state.querystring.reduce(function (acc, curr, i) {
-          return (i === 0) ? `${curr.key}=${curr.value}` : `${acc}&${curr.key}=${curr.value}`
-        }, '')
-      }
-      state.url = state.protocol + '://' + state.host + state.path + '?' + querystring
+      var querystring = (state.querystring.length > 0)
+        ? '?' + state.querystring.reduce(function (acc, curr, i) {
+          return (i === 0) ? `${curr.key}=${curr.value}` : `${acc}&${curr.key}=${curr.value || ''}`
+        }, '') : ''
+
+      state.url = state.protocol + '://' + state.host + state.path + querystring
     }
     emitter.emit('render')
   })
