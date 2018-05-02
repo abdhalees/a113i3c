@@ -1,15 +1,19 @@
 var html = require('choo/html')
+var css = require('sheetify')
+
+css('tachyons')
 
 module.exports = function (query, i, emit) {
   return html`
-    <div>
-      <label for='query${i}'> Query Parameter ${i + 1}</label>
+     <li class='mb3'>
+      <label for='query${i}' class='dib w-20 mb2'> Query Parameter ${i + 1}:</label>
       <div id='query${i}'>
-        <input type="text" name='key' oninput=${onInput} value=${query.key} />
-        <input type="text" name='value' oninput=${onInput} value=${query.value} />
-        <button name='delete' onclick=${onClick}> Remove query</button>
-      </div>
-    </div>
+        <label for=${query.key} class='dib w-20'> Key: </label>
+        <input type="text" id=${query.key} class='mr2' name='key' oninput=${onInput} value=${query.key} />
+        <label for=${query.value}${i} class='mr2'> Value: </label>
+        <input type="text" id=${query.value}${i} name='value' oninput=${onInput} value=${query.value} />
+        <button name='delete' class='ml2 bg-light-red' onclick=${onClick}> Remove Query</button>
+      </li>
     `
 
   function onInput (e) {

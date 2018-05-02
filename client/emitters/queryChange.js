@@ -6,13 +6,12 @@ module.exports = function (state, emitter) {
     else if (type === 'insert') state.querystring.push({key, value})
     else {
       state.querystring = state.querystring.map(function (query, i) {
-        if (i === key && type === 'key') return {key: value, value: query.value}
-        if (i === key && type === 'value') return {key: query.key, value: value}
+        if (i === key && type === 'key') return {key: value, value: query.value || ''}
+        if (i === key && type === 'value') return {key: query.key, value: value || ''}
         return query
       })
     }
 
     emitter.emit('urlChange')
-    emitter.emit('render')
   })
 }

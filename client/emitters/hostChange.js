@@ -3,6 +3,5 @@ module.exports = function (state, emitter) {
   emitter.on('hostChange', function (host) {
     state.host = host
     emitter.emit('urlChange')
-    emitter.emit('render')
   })
 }

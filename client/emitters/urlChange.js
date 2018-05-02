@@ -10,8 +10,8 @@ module.exports = function (state, emitter) {
       var pathSplit = url.split(hostnameSplit[0])
       var path = pathSplit[1].split('?')[0]
       var querystringSplit = url.split('?')
-      var query = (querystringSplit[1]) ?
-        querystringSplit[1].split('&').map(function (query) {
+      var query = (querystringSplit[1])
+        ? querystringSplit[1].split('&').map(function (query) {
           var keyValue = query.split('=')
           return {key: keyValue[0], value: keyValue[1]}
         }) : []
@@ -28,5 +28,6 @@ module.exports = function (state, emitter) {
       }
       state.url = state.protocol + '://' + state.host + state.path + '?' + querystring
     }
+    emitter.emit('render')
   })
 }
