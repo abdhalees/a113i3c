@@ -11,12 +11,22 @@ var height = css`
   height: 100vh
   }
 `
+var inlineTable = css`
+    :host {
+      display: inline-table;
+    }
+`
 
 module.exports = function (state, emit) {
   return html`
     <body class='flex flex-column items-center bg-near-white ${height}'>
-      ${urlInput(state.url, emit)}
-      ${urlParts(state.protocol, state.host, state.path, state.querystring, emit)}
+      <div class='${inlineTable} bg-white mt5 w-90 h-75 ba bw1 b--light-gray br2'>
+      <div class='flex bb b--light-gray w-90 mh4'>
+        <h3 class='sans-serif'> URL Editor </h3>
+      </div>
+        ${urlInput(state.url, emit)}
+        ${urlParts(state.protocol, state.host, state.path, state.querystring, emit)}
+     </div>
     </body>
   `
 }

@@ -5,13 +5,13 @@ css('tachyons')
 
 module.exports = function (url, emit) {
   return html`
-    <li class='flex justify-center w-100 mt6 mb5'>
+    <li class='flex w-100 mt4 mb3 ml4'>
       <input
          type="text"
          placeholder='Enter URL Here ...'
          id='url' name="url"
          oninput=${onInput}
-         class='w-60'
+         class='w-60 ba b--light-gray h2 blue code'
          value=${url}
         />
     </li>
