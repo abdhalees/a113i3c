@@ -10,16 +10,16 @@ module.exports = function (protocol, host, path, query, emit) {
     <div class='flex flex-column w-80'>
       <ul class='list'>
         <li class=' flex flex-column mb2'>
-          <label for='protocol' class='dib mb2 w-20 roboto mid-gray'> Protocol: </label>
-          <input id='protocol' class='h2 pl2 ba b--light-gray code w-40' type="text" oninput=${onInput} value=${protocol} />
+          <label for='protocol' class='dib mb2 w-20 sans-serif mid-gray'> Protocol: </label>
+          <input id='protocol' class='h2 pl2 ba b--light-gray sans-serif w-40' type="text" oninput=${onInput} value=${protocol} />
         </li>
         <li class='flex flex-column mb2'>
-          <label for='host' class='dib w-20 mb2 roboto mid-gray'> Hostname: </label>
-          <input id='host' class='h2 ba pl2 b--light-gray code w-40' type="text" oninput=${onInput} value=${host} />
+          <label for='host' class='dib w-20 mb2 sans-serif mid-gray'> Hostname: </label>
+          <input id='host' class='h2 ba pl2 b--light-gray sans-serif w-40' type="text" oninput=${onInput} value=${host} />
         </li>
         <li class='flex flex-column mb2'>
-          <label for='path' class='dib w-20 mb2 roboto mid-gray'> Path: </label>
-          <input id='path' class='h2 ba pl2 b--light-gray code w-40' type="text" oninput=${onInput} value=${path} />
+          <label for='path' class='dib w-20 mb2 sans-serif mid-gray'> Path: </label>
+          <input id='path' class='h2 ba pl2 b--light-gray sans-serif w-40' type="text" oninput=${onInput} value=${path} />
         </li>
         ${query.map(function (query, i) { return queryStrings(query, i, emit) })}
         ${newQuery(emit)}
