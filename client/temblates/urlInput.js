@@ -11,7 +11,7 @@ module.exports = function (url, emit) {
          placeholder='Enter URL Here ...'
          id='url' name="url"
          oninput=${onInput}
-         class='w-60 pl2 ba b--light-gray h2 blue code'
+         class='w-60 pl2 ba b--light-gray h2 blue sans-serif'
          value=${url}
         />
     </li>
