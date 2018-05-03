@@ -23,10 +23,16 @@ var w95 = css`
   }
 `
 
+var shadow = css`
+  :host {
+    box-shadow: 4px 4px #f0f0f0, 4px 4px #f0f0f0;
+  }
+`
+
 module.exports = function (state, emit) {
   return html`
     <body class='flex flex-column items-center bg-near-white ${height}'>
-      <div class='${inlineTable} bg-white mt5 ${w95} h-50 ba bw1 b--light-gray br2'>
+      <div class='${inlineTable} bg-white mt5 ${w95} ${shadow} h-50 br2'>
       <div class='flex bb bw1 b--light-gray w-90 mh4 mt3'>
         <h3 class='sans-serif mid-gray'> URL Editor </h3>
       </div>
